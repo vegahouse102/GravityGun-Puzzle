@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959923646434410856}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.697548, z: -0, w: 0.71653813}
+  m_LocalRotation: {x: 0, y: 0.6975466, z: 0, w: 0.71653944}
   m_LocalPosition: {x: 2.456112, y: 1.22, z: 1.6003671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -120,7 +120,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 3759003030669438678}
   - component: {fileID: 1272650994734269341}
   - component: {fileID: 2427012346725150115}
+  - component: {fileID: 2255093189090603474}
   m_Layer: 0
   m_Name: Behaviour
   m_TagString: Untagged
@@ -238,6 +239,20 @@ MonoBehaviour:
   _player: {fileID: 1659934885987706613}
   _camera: {fileID: 8999327599104700268}
   _sensitivity: 2
+--- !u!114 &2255093189090603474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2694367536314772100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17380b105aebef544a6d9732a536e826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _input: {fileID: 2257935987035087733}
+  _gun: {fileID: 7042417249534300265}
 --- !u!1 &3652186923614974107
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8617766360290741022, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.161
+      value: 0.329
       objectReference: {fileID: 0}
     - target: {fileID: 8617766360290741022, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
       propertyPath: m_LocalRotation.w
@@ -438,3 +453,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8617766360290741022, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
   m_PrefabInstance: {fileID: 7496056406396723235}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7042417249534300265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
+  m_PrefabInstance: {fileID: 7496056406396723235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefe81e43d1163c40bd90a2fe1095dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
