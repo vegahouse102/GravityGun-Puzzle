@@ -10,17 +10,16 @@ public class BottomButton : MonoBehaviour
 	private const string _PressedKey = "Pressed";
 	private const string _UnPressedKey = "UnPressed";
 
-	public UnityAction OnActivate;
-	public UnityAction OnDeactivate;
+	public UnityEvent<bool> OnActivate;
 
 	public void Pressed()
 	{
 		_animator.SetTrigger(_PressedKey);
-		OnActivate?.Invoke();
+		OnActivate?.Invoke(true);
 	}
 	public void UnPressed()
 	{
 		_animator.SetTrigger(_UnPressedKey);
-		OnDeactivate?.Invoke();
+		OnActivate?.Invoke(false);
 	}
 }

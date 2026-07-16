@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9042082923425475937}
   - component: {fileID: 3228133687357844058}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,6 +296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _animator: {fileID: 3223258572293712973}
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8184130597829262740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,13 +357,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d1fcf2c39a0ac40a0b6a359b435d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  strs: []
+  strs:
+  - Player
+  - Cube
   OnDetect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4328400313094467897}
+        m_TargetAssemblyTypeName: BottomButton, Assembly-CSharp
+        m_MethodName: Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnClear:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4328400313094467897}
+        m_TargetAssemblyTypeName: BottomButton, Assembly-CSharp
+        m_MethodName: UnPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1671105779166658750
 BoxCollider:
   m_ObjectHideFlags: 0
