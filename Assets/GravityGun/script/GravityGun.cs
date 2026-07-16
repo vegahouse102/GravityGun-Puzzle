@@ -11,6 +11,8 @@ public class GravityGun : MonoBehaviour
 	[SerializeField]
 	private float _grabDistance;
 	[SerializeField]
+	private float _grabDistanceThreshold;
+	[SerializeField]
 	private float _maxGrabingDistance;
 	[SerializeField]
 	private float _grabingVelocity;
@@ -110,6 +112,8 @@ public class GravityGun : MonoBehaviour
 
 			_grabObject.AddForce(force, ForceMode.Acceleration);
 			_grabObject.MoveRotation(Quaternion.identity);
+			if (Vector3.Distance(_playerCamera.transform.position, _grabObject.transform.position) > _grabDistanceThreshold)
+				_curState = GravityGunState.Idle;
 		}
 	}
 

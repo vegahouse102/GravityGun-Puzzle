@@ -1159,6 +1159,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7042417249534300265, guid: 6753a014df09c20469e2d5b6693b522e, type: 3}
+      propertyPath: _grabDistanceThreshold
+      value: 2.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
