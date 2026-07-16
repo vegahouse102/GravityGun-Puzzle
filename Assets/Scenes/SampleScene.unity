@@ -1159,18 +1159,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3759003030669438678, guid: 6753a014df09c20469e2d5b6693b522e, type: 3}
-      propertyPath: _speed
-      value: 1.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042417249534300265, guid: 6753a014df09c20469e2d5b6693b522e, type: 3}
-      propertyPath: _grabingVelocity
-      value: 11.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7042417249534300265, guid: 6753a014df09c20469e2d5b6693b522e, type: 3}
-      propertyPath: _grabableLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
