@@ -8,12 +8,16 @@ public class PlayerJump : MonoBehaviour
 	Rigidbody _rb;
 	[SerializeField]
 	float _jumpVelocity;
+	[SerializeField]
+	BottomSensor _sensor;
 	private void Update()
 	{
-		if (_input.Input.Player.Jump.WasPressedThisFrame())
+		if (_input.Input.Player.Jump.IsPressed())
 		{
-			_rb.linearVelocity = new Vector3(_rb.linearVelocity.x,_jumpVelocity, _rb.linearVelocity.z);
-			Debug.Log("asdfasdf");
+			if (_sensor.IsGround)
+			{
+				_rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _jumpVelocity, _rb.linearVelocity.z);
+			}
 		}
 	}
 }
