@@ -123,8 +123,22 @@ public class GravityGun : MonoBehaviour
 		{
 			Vector3 dir = _playerCamera.forward;
 			PutGrabObject();
-			_grabObject.AddForce(dir*_FireForce,ForceMode.Impulse);
+			_grabObject.AddForce(dir * _FireForce, ForceMode.Impulse);
 			_curState = GravityGunState.Idle;
+		}
+		else
+		{
+			Vector3 dir = _playerCamera.forward;
+			Vector3 start = _playerCamera.position + dir * _cameraDelta;
+			Debug.DrawRay(start, dir * _maxGrabingDistance);
+
+			if (Physics.Raycast(start, dir, out RaycastHit hit, _maxGrabingDistance))
+			{
+				if (((1 << hit.collider.gameObject.layer) & _grabableLayer.value) == 0)
+					return;
+				hit.rigidbody.AddForce(dir * _FireForce, ForceMode.Impulse);
+				_curState = GravityGunState.Idle;
+			}
 		}
 	}
 
