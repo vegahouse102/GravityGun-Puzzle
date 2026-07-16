@@ -9,6 +9,23 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.behavior": {
+      "version": "1.0.16",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.7.2",
+        "com.unity.dt.app-ui": "2.0.0",
+        "com.unity.modules.ai": "1.0.0",
+        "com.unity.collections": "2.1.4",
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.animation": "1.0.0",
+        "com.unity.nuget.newtonsoft-json": "3.2.1",
+        "com.unity.modules.particlesystem": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.burst": {
       "version": "1.8.29",
       "depth": 2,
@@ -36,6 +53,18 @@
         "com.unity.test-framework": "1.4.6",
         "com.unity.test-framework.performance": "3.2.0"
       }
+    },
+    "com.unity.dt.app-ui": {
+      "version": "2.1.7",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.androidjni": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0",
+        "com.unity.modules.screencapture": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
       "version": "2.1.0",
@@ -87,6 +116,13 @@
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.6",
       "depth": 3,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.2",
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -189,6 +225,16 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.vega.enemy-base-v2": {
+      "version": "https://github.com/vegahouse102/Unity_Enemy_BaseV2.git#4.0.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.behavior": "1.0.16"
+      },
+      "hash": "3078ea204012ae4fd0d521ba3b6e99baf6b2407c"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

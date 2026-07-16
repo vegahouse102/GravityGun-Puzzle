@@ -207,7 +207,7 @@ MonoBehaviour:
   _inputGetter: {fileID: 2257935987035087733}
   _rigid: {fileID: 3660480203250801630}
   _player: {fileID: 1659934885987706613}
-  _speed: 3.73
+  _speed: 1.57
 --- !u!114 &1272650994734269341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +400,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 8999327599104700268}
     m_Modifications:
     - target: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
+      propertyPath: _FireForce
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
+      propertyPath: _grabForce
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
+      propertyPath: _cameraDelta
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
       propertyPath: _grabDistance
       value: 1.39
       objectReference: {fileID: 0}
@@ -407,6 +419,14 @@ PrefabInstance:
       propertyPath: _playerCamera
       value: 
       objectReference: {fileID: 8999327599104700268}
+    - target: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
+      propertyPath: _grabingVelocity
+      value: 11.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
+      propertyPath: _grabableLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7616630659290622618, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
       propertyPath: m_Name
       value: GravityGun

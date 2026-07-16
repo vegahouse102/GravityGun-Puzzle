@@ -45,9 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefe81e43d1163c40bd90a2fe1095dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _playerCamera: {fileID: 0}
+  _cameraDelta: 1.21
   _grabDistance: 0.79
   _maxGrabingDistance: 45.89
   _grabVelocity: 14.89
+  _FireForce: 11.27
   _grabLayer:
     serializedVersion: 2
     m_Bits: 64

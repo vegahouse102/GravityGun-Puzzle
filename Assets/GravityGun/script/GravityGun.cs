@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 
 public class GravityGun : MonoBehaviour
@@ -7,51 +7,60 @@ public class GravityGun : MonoBehaviour
 	[SerializeField]
 	Transform _playerCamera;
 	[SerializeField]
+	private float _cameraDelta;
+	[SerializeField]
 	private float _grabDistance;
 	[SerializeField]
 	private float _maxGrabingDistance;
 	[SerializeField]
-	private float _grabVelocity;
+	private float _grabingVelocity;
 	[SerializeField]
 	private float _FireForce;
 
+
+
 	[SerializeField]
-	private LayerMask _grabLayer;
+	private float _grabForce;
+
+	[SerializeField]
+	private LayerMask _grabableLayer;
 
 	private Rigidbody _grabObject;
 
-	private State _curState;
+	private GravityGunState _curState;
+
+	private const int _GrabingLayer = 7;
+	private const int _GrabLayer = 6;
 	private void Awake()
 	{
-		_curState = State.Idle;
+		_curState = GravityGunState.Idle;
 	}
 
 	private void FixedUpdate()
 	{
 		switch (_curState)
 		{
-			case State.Idle:
+			case GravityGunState.Idle:
 				HandleIdle();
 				break;
-			case State.Grabing:
+			case GravityGunState.Grabing:
 				HandleGrabing();
 				break;
-			case State.Grab:
+			case GravityGunState.Grab:
 				HandleGrab();
 				break;
-			case State.Fire:
+			case GravityGunState.Fire:
 				HandleFire();
 				break;
 		}
-		Debug.Log(_curState.ToString());
+		//Debug.Log(_curState.ToString());
 	}
 
 	private void HandleIdle()
 	{
 		if (_grabObject != null)
 		{
-			_grabObject.constraints = RigidbodyConstraints.None;
-			_grabObject.WakeUp();
+			PutGrabObject();
 			_grabObject = null;
 		}
 	}
@@ -59,17 +68,20 @@ public class GravityGun : MonoBehaviour
 	private void HandleGrabing()
 	{
 		Vector3 dir = _playerCamera.forward;
-		Debug.DrawRay(_playerCamera.position, dir*_maxGrabingDistance);
-		if(Physics.Raycast(_playerCamera.position, dir, out RaycastHit hitInfo,_maxGrabingDistance,_grabLayer))
+		Vector3 start = _playerCamera.position +dir* _cameraDelta;
+		Debug.DrawRay(start, dir*_maxGrabingDistance);
+
+		if (Physics.Raycast(start, dir, out RaycastHit hit, _maxGrabingDistance))
 		{
-			_grabObject = hitInfo.rigidbody;
-			Rigidbody grabingObjectRigid = hitInfo.rigidbody;
-			if(grabingObjectRigid != null)
+			if (((1 << hit.collider.gameObject.layer) & _grabableLayer.value) == 0)
+				return;
+			_grabObject = hit.rigidbody;
+			if(_grabObject != null)
 			{
-				grabingObjectRigid.linearVelocity += -dir * _grabVelocity*Time.fixedDeltaTime;
-				if(grabingObjectRigid.linearVelocity.sqrMagnitude> _grabVelocity* _grabVelocity)
+				_grabObject.linearVelocity += -dir * _grabingVelocity*Time.deltaTime;
+				if(_grabObject.linearVelocity.sqrMagnitude> _grabingVelocity* _grabingVelocity)
 				{
-					grabingObjectRigid.linearVelocity = -dir * _grabVelocity;
+					_grabObject.linearVelocity = -dir * _grabingVelocity;
 				}
 				Debug.Log("grabbing");
 			}
@@ -79,7 +91,7 @@ public class GravityGun : MonoBehaviour
 			}
 			if(Vector3.Distance(_grabObject.transform.position, _playerCamera.position) < _grabDistance)
 			{
-				_curState = State.Grab;
+				_curState = GravityGunState.Grab;
 			}
 		}
 
@@ -89,54 +101,79 @@ public class GravityGun : MonoBehaviour
 	{
 		if( _grabObject != null )
 		{
-			_grabObject.transform.rotation = Quaternion.identity;
-			Vector3 dir =_playerCamera.forward;
-			_grabObject.transform.position = dir * _grabDistance + _playerCamera.position;
-			_grabObject.constraints = RigidbodyConstraints.FreezeAll;
-			_grabObject.Sleep();
+			//_grabObject.transform.position = _playerCamera.forward * _grabDistance + _playerCamera.position;
+			GrabGrabObject();
+			Vector3 target =
+			    _playerCamera.position +
+			    _playerCamera.forward * _grabDistance;
+			Vector3 force = (target - _grabObject.position) * _grabForce;
+
+			_grabObject.AddForce(force, ForceMode.Acceleration);
+			_grabObject.MoveRotation(Quaternion.identity);
 		}
 	}
 
 	private void HandleFire()
 	{
-
+		if (_grabObject != null)
+		{
+			Vector3 dir = _playerCamera.forward;
+			PutGrabObject();
+			_grabObject.AddForce(dir*_FireForce,ForceMode.Impulse);
+			_curState = GravityGunState.Idle;
+		}
 	}
+
+	private void PutGrabObject()
+	{
+		_grabObject.constraints = RigidbodyConstraints.None;
+		//_grabObject.WakeUp();
+		_grabObject.useGravity = true;
+		_grabObject.gameObject.layer = _GrabLayer;
+	}
+
+	private void GrabGrabObject()
+	{
+		//_grabObject.constraints = RigidbodyConstraints.FreezeAll;
+		//_grabObject.Sleep();
+		_grabObject.gameObject.layer = _GrabingLayer;
+		_grabObject.useGravity = false;
+		_grabObject.linearVelocity = Vector3.zero;
+		_grabObject.angularVelocity = Vector3.zero;
+		//_grabObject.useGravity = false;
+	}
+
 
 	public void StartGrabInput()
 	{
-		if(_curState== State.Idle)
+		if(_curState== GravityGunState.Idle)
 		{
-			_curState = State.Grabing;
+			_curState = GravityGunState.Grabing;
 		}
-		else if(_curState == State.Grab)
+		else if(_curState == GravityGunState.Grab)
 		{
-			_curState = State.Idle;
+			_curState = GravityGunState.Idle;
 		}
-		Debug.Log("StartGrabInput");
+		//Debug.Log("StartGrabInput");
 	}
 	public void EndGrabInput()
 	{
-		if (_curState == State.Grabing)
+		if (_curState == GravityGunState.Grabing)
 		{
-			_curState = State.Idle;
+			_curState = GravityGunState.Idle;
 		}
 	}
 
 	public void StartFireInput()
 	{
-		_curState = State.Fire;
+		_curState = GravityGunState.Fire;
 	}
 	public void EndFireInput()
 	{
-		_curState = State.Idle;
+		_curState = GravityGunState.Idle;
 	}
 
 
-	private enum State
-	{
-		Idle,
-		Grabing,
-		Grab,
-		Fire
-	}
+	
 }
+
