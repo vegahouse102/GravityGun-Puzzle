@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class BottomButtonSensor : MonoBehaviour
 {
 	[SerializeField]
-	List<string> strs = new();
+	string _tag;
 	public UnityEvent OnDetect;
 	public UnityEvent OnClear;
 
@@ -13,24 +13,23 @@ public class BottomButtonSensor : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 
-
-		if (strs.Contains(other.name))
-		{
-			if (count == 0)
-				OnDetect?.Invoke();
-			count++;
-		}
+		if (!other.CompareTag(_tag))
+			return;
+		if (count == 0)
+			OnDetect?.Invoke();
+		count++;
+		
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
 
-		if (strs.Contains(other.name))
-		{
-			count--;
-			if (count == 0)
-				OnClear?.Invoke();
-		}
+		if (!other.CompareTag(_tag))
+			return;
+		count--;
+		if (count == 0)
+			OnClear?.Invoke();
+
 
 	}
 }

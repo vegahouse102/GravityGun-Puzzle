@@ -379,9 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d1fcf2c39a0ac40a0b6a359b435d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  strs:
-  - Player
-  - Cube
+  _tag: WeightButton
   OnDetect:
     m_PersistentCalls:
       m_Calls:
