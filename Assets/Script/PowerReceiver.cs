@@ -1,13 +1,18 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using System.Collections.Generic;
+using System;
 public class PowerReceiver : MonoBehaviour
 {
 	public UnityEvent<bool> OnActivate;
+	public UnityEvent<bool> OnRelaySignal;
 	private int _curOnCount;
-
+	private bool _isSetting;
 	public void SetPower(bool value)
 	{
+		if (_isSetting)
+			return;
+		_isSetting = true ;
 		if (value)
 		{
 			if (_curOnCount == 0)
@@ -22,5 +27,7 @@ public class PowerReceiver : MonoBehaviour
 				OnActivate?.Invoke(false);
 			}
 		}
+		OnRelaySignal?.Invoke(value);
+		_isSetting = false;
 	}
 }

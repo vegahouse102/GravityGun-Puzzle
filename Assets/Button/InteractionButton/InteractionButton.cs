@@ -14,8 +14,8 @@ public class InteractionButton : InterationBehaviour
 	Sequence _curSequence;
 	public override void Interacte()
 	{
-		if (_curSequence != null)
-			_curSequence.Complete();
+		if (_curSequence != null && _curSequence.IsPlaying())
+			return;
 		_curSequence = DOTween.Sequence();
 		_curSequence.AppendCallback(() =>
 		{

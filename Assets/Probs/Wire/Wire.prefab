@@ -127,9 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _render: {fileID: 1110316600889008365}
-  OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
+  _myReceiver: {fileID: 702861485308493012}
+  _nearPowerReceiver: []
 --- !u!114 &702861485308493012
 MonoBehaviour:
   m_ObjectHideFlags: 0
