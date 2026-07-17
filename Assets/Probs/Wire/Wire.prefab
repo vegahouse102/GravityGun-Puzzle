@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1110316600889008365}
   - component: {fileID: 1360497149537738238}
   - component: {fileID: 5857213455204824575}
+  - component: {fileID: 702861485308493012}
   m_Layer: 2
   m_Name: Wire
   m_TagString: Untagged
@@ -68,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 41afadf96683ae84bb523415fa52f057, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,3 +127,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _render: {fileID: 1110316600889008365}
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &702861485308493012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846508867992038530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a275f2fbb855014daf9660a4dbaf4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerReceiver
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5857213455204824575}
+        m_TargetAssemblyTypeName: Wire, Assembly-CSharp
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
