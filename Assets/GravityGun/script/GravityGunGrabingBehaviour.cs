@@ -1,6 +1,6 @@
 using UnityEngine;
 using Enemy;
-public class GravityGunGrabingBehaviour : EnemyBehaviour
+public class GravityGunGrabingState : Node
 {
 
 }
