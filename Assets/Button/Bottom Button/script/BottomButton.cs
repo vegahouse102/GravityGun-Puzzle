@@ -6,6 +6,8 @@ public class BottomButton : MonoBehaviour
 {
 	[SerializeField]
 	private Animator _animator;
+	[SerializeField]
+	private ButtonOfOff _buttonOfOff;
 
 	private const string _PressedKey = "Pressed";
 	private const string _UnPressedKey = "UnPressed";
@@ -16,10 +18,12 @@ public class BottomButton : MonoBehaviour
 	{
 		_animator.SetTrigger(_PressedKey);
 		OnActivate?.Invoke(true);
+		_buttonOfOff.SetActive(true);
 	}
 	public void UnPressed()
 	{
 		_animator.SetTrigger(_UnPressedKey);
 		OnActivate?.Invoke(false);
+		_buttonOfOff.SetActive(false);
 	}
 }

@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class GravityGun : MonoBehaviour
@@ -19,7 +20,12 @@ public class GravityGun : MonoBehaviour
 	[SerializeField]
 	private float _FireForce;
 
-
+	[SerializeField]
+	AudioSource _fire;
+	[SerializeField]
+	AudioSource _grab;
+	[SerializeField]
+	AudioSource _grabbing;
 
 	[SerializeField]
 	private float _grabForce;
@@ -35,7 +41,7 @@ public class GravityGun : MonoBehaviour
 	private const int _GrabLayer = 6;
 	private void Awake()
 	{
-		_curState = GravityGunState.Idle;
+		SetState(GravityGunState.Idle);
 	}
 
 	private void FixedUpdate()
@@ -56,6 +62,75 @@ public class GravityGun : MonoBehaviour
 				break;
 		}
 		//Debug.Log(_curState.ToString());
+	}
+
+	#region state
+	private void SetState(GravityGunState state)
+	{
+		if(_curState!=GravityGunState.None)
+			ExecuteEndState(_curState);
+
+		_curState = state;
+		ExecuteStartState(state);
+	}
+
+	private void ExecuteStartState(GravityGunState state)
+	{
+		switch (_curState)
+		{
+			case GravityGunState.Idle:
+				//HandleIdle();
+				break;
+			case GravityGunState.Grabing:
+				HandleGrabingStart();
+				break;
+			case GravityGunState.Grab:
+				HandleGrabStart();
+				break;
+			case GravityGunState.Fire:
+				HandleFireStart();
+				break;
+		}
+	}
+	private void ExecuteEndState(GravityGunState state)
+	{
+		switch (_curState)
+		{
+			case GravityGunState.Idle:
+				//HandleIdle();
+				break;
+			case GravityGunState.Grabing:
+				//HandleGrabingStart();
+				break;
+			case GravityGunState.Grab:
+				HandleGrabEnd();
+				break;
+			case GravityGunState.Fire:
+				//HandleFireStart();
+				break;
+		}
+	}
+
+	private void HandleFireStart()
+	{
+		_fire.Play();
+	}
+
+	private void HandleGrabStart()
+	{
+		_grab.Play();
+	}
+
+	private void HandleGrabingStart()
+	{
+		_grabbing.Play();
+	}
+
+	
+
+	private void HandleGrabEnd()
+	{
+		_grab.Stop();
 	}
 
 	private void HandleIdle()
@@ -85,15 +160,16 @@ public class GravityGun : MonoBehaviour
 				{
 					_grabObject.linearVelocity = -dir * _grabingVelocity;
 				}
-				Debug.Log("grabbing");
+				//Debug.Log("grabbing");
 			}
 			else
 			{
-				Debug.Log("Not grabbing");
+				//Debug.Log("Not grabbing");
 			}
 			if(Vector3.Distance(_grabObject.transform.position, _playerCamera.position) < _grabDistance)
 			{
-				_curState = GravityGunState.Grab;
+				SetState(GravityGunState.Grab);
+				//_curState = GravityGunState.Grab;
 			}
 		}
 
@@ -113,7 +189,7 @@ public class GravityGun : MonoBehaviour
 			_grabObject.AddForce(force, ForceMode.Acceleration);
 			_grabObject.MoveRotation(Quaternion.identity);
 			if (Vector3.Distance(_playerCamera.transform.position, _grabObject.transform.position) > _grabDistanceThreshold)
-				_curState = GravityGunState.Idle;
+				SetState(GravityGunState.Idle);
 		}
 	}
 
@@ -124,7 +200,7 @@ public class GravityGun : MonoBehaviour
 			Vector3 dir = _playerCamera.forward;
 			PutGrabObject();
 			_grabObject.AddForce(dir * _FireForce, ForceMode.Impulse);
-			_curState = GravityGunState.Idle;
+			SetState(GravityGunState.Idle);
 		}
 		else
 		{
@@ -137,11 +213,11 @@ public class GravityGun : MonoBehaviour
 				if (((1 << hit.collider.gameObject.layer) & _grabableLayer.value) == 0)
 					return;
 				hit.rigidbody.AddForce(dir * _FireForce, ForceMode.Impulse);
-				_curState = GravityGunState.Idle;
+				SetState(GravityGunState.Idle);
 			}
 		}
 	}
-
+	#endregion
 	private void PutGrabObject()
 	{
 		_grabObject.constraints = RigidbodyConstraints.None;
@@ -166,11 +242,12 @@ public class GravityGun : MonoBehaviour
 	{
 		if(_curState== GravityGunState.Idle)
 		{
-			_curState = GravityGunState.Grabing;
+			SetState(GravityGunState.Grabing);
+			//SetState(GravityGunState.Idle);
 		}
 		else if(_curState == GravityGunState.Grab)
 		{
-			_curState = GravityGunState.Idle;
+			SetState(GravityGunState.Idle);
 		}
 		//Debug.Log("StartGrabInput");
 	}
@@ -178,17 +255,17 @@ public class GravityGun : MonoBehaviour
 	{
 		if (_curState == GravityGunState.Grabing)
 		{
-			_curState = GravityGunState.Idle;
+			SetState(GravityGunState.Idle);
 		}
 	}
 
 	public void StartFireInput()
 	{
-		_curState = GravityGunState.Fire;
+		SetState(GravityGunState.Fire);
 	}
 	public void EndFireInput()
 	{
-		_curState = GravityGunState.Idle;
+		SetState(GravityGunState.Idle);
 	}
 
 

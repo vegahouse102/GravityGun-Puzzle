@@ -25,7 +25,8 @@ MonoBehaviour:
   - rid: 4449475435604476231
   - rid: 4449475435604476246
   - rid: 4449475435604476263
-  m_VersionTimestamp: 639198132242841332
+  - rid: 4449475549798596680
+  m_VersionTimestamp: 639202554790676987
   m_SerializedVersion: 3
   m_DebugInfo: {fileID: 7236426001284456143}
   m_RuntimeGraph: {fileID: 803220635123635909}
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_EnumDependencyCache:
     Entries:
     - EnumTypeId: GravityGunState, Assembly-CSharp
-      SignatureHash: 1e0d77e569f1e62743d012de33df8c4d
+      SignatureHash: 208a8fb13c458dcf544bf3031f6b14a6
   references:
     version: 2
     RefIds:
@@ -138,6 +139,7 @@ MonoBehaviour:
         Parents: []
         PortModels:
         - rid: 4449475435604476174
+        - rid: 4449475549798596681
         - rid: 4449475435604476186
         - rid: 4449475435604476187
         - rid: 4449475435604476188
@@ -192,7 +194,7 @@ MonoBehaviour:
     - rid: 4449475435604476182
       type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
-        Position: {x: -370, y: 211}
+        Position: {x: -200, y: 223}
         ID:
           m_Value0: 5149470598340537812
           m_Value1: 11377669070175933972
@@ -204,11 +206,11 @@ MonoBehaviour:
           m_Value0: 4311454199324452990
           m_Value1: 1295440988728620540
         PortName: Idle
-        Metadata: 0000000000000000
+        Metadata: 0000000000000001
     - rid: 4449475435604476183
       type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
-        Position: {x: -124, y: 211}
+        Position: {x: 0, y: 223}
         ID:
           m_Value0: 7367055047375721312
           m_Value1: 9956749196017175584
@@ -220,11 +222,11 @@ MonoBehaviour:
           m_Value0: 4311454199324452990
           m_Value1: 1295440988728620540
         PortName: Grabing
-        Metadata: 0000000000000001
+        Metadata: 0000000000000002
     - rid: 4449475435604476184
       type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
-        Position: {x: 122, y: 211}
+        Position: {x: 200, y: 223}
         ID:
           m_Value0: 12027524981624649178
           m_Value1: 15220331002771718383
@@ -236,11 +238,11 @@ MonoBehaviour:
           m_Value0: 4311454199324452990
           m_Value1: 1295440988728620540
         PortName: Grab
-        Metadata: 0000000000000002
+        Metadata: 0000000000000003
     - rid: 4449475435604476185
       type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
-        Position: {x: 369, y: 211}
+        Position: {x: 400, y: 223}
         ID:
           m_Value0: 9174589885475747744
           m_Value1: 14374393463798101145
@@ -252,7 +254,7 @@ MonoBehaviour:
           m_Value0: 4311454199324452990
           m_Value1: 1295440988728620540
         PortName: Fire
-        Metadata: 0000000000000003
+        Metadata: 0000000000000004
     - rid: 4449475435604476186
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -691,6 +693,51 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: Fire
+    - rid: 4449475549798596680
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -400, y: 223}
+        ID:
+          m_Value0: 11210558573665853271
+          m_Value1: 10455594707598538680
+        Parents: []
+        PortModels:
+        - rid: 4449475549798596682
+        - rid: 4449475549798596683
+        ParentNodeID:
+          m_Value0: 4311454199324452990
+          m_Value1: 1295440988728620540
+        PortName: None
+        Metadata: 0000000000000000
+    - rid: 4449475549798596681
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: None
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 4449475435604476173
+        m_Connections:
+        - rid: 4449475549798596682
+    - rid: 4449475549798596682
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 4449475549798596680
+        m_Connections:
+        - rid: 4449475549798596681
+    - rid: 4449475549798596683
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 4449475549798596680
+        m_Connections: []
 --- !u!114 &803220635123635909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,8 +770,8 @@ MonoBehaviour:
           rid: 4449475435604476154
         BlackboardGroupReferences: []
         Root:
-          rid: 4449475435604476294
-        m_VersionTimestamp: 639198132242841332
+          rid: 4449475549798596684
+        m_VersionTimestamp: 639202554790676987
     - rid: 4449475435604476154
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -735,66 +782,10 @@ MonoBehaviour:
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 4449475435604476211
-        - rid: 4449475435604476212
-        - rid: 4449475435604476213
-    - rid: 4449475435604476211
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 0}
-    - rid: 4449475435604476212
-      type: {class: 'BlackboardVariable`1[[GravityGunState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 12466100356844549436
-          m_Value1: 8809844331902637862
-        Name: CurState
-        m_Value: 0
-    - rid: 4449475435604476213
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Rigidbody, UnityEngine.PhysicsModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 7727282280897536034
-          m_Value1: 1425574493914160928
-        Name: GrabingObject
-        m_Value: {fileID: 0}
-    - rid: 4449475435604476227
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: Idle
-    - rid: 4449475435604476245
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: Grabing
-    - rid: 4449475435604476262
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: Grab
-    - rid: 4449475435604476281
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: Fire
-    - rid: 4449475435604476294
+        - rid: 4449475549798596686
+        - rid: 4449475549798596687
+        - rid: 4449475549798596688
+    - rid: 4449475549798596684
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -805,10 +796,10 @@ MonoBehaviour:
         m_Parent:
           rid: -2
         m_Child:
-          rid: 4449475435604476295
+          rid: 4449475549798596685
         Repeat: 1
         AllowMultipleRepeatsPerTick: 0
-    - rid: 4449475435604476295
+    - rid: 4449475549798596685
       type: {class: SwitchComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
@@ -817,16 +808,41 @@ MonoBehaviour:
         Graph:
           rid: 4449475435604476153
         m_Parent:
-          rid: 4449475435604476294
+          rid: 4449475549798596684
         m_Children:
-        - rid: 4449475435604476296
-        - rid: 4449475435604476297
-        - rid: 4449475435604476298
-        - rid: 4449475435604476299
+        - rid: -2
+        - rid: 4449475549798596689
+        - rid: 4449475549798596690
+        - rid: 4449475549798596691
+        - rid: 4449475549798596692
         m_RegisteredObservers: []
         EnumVariable:
-          rid: 4449475435604476212
-    - rid: 4449475435604476296
+          rid: 4449475549798596687
+    - rid: 4449475549798596686
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 0}
+    - rid: 4449475549798596687
+      type: {class: 'BlackboardVariable`1[[GravityGunState, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 12466100356844549436
+          m_Value1: 8809844331902637862
+        Name: CurState
+        m_Value: 0
+    - rid: 4449475549798596688
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Rigidbody, UnityEngine.PhysicsModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 7727282280897536034
+          m_Value1: 1425574493914160928
+        Name: GrabingObject
+        m_Value: {fileID: 0}
+    - rid: 4449475549798596689
       type: {class: ExecuteBehaviorAction, ns: , asm: Enemy}
       data:
         ID:
@@ -835,12 +851,12 @@ MonoBehaviour:
         Graph:
           rid: 4449475435604476153
         m_Parent:
-          rid: 4449475435604476295
+          rid: 4449475549798596685
         Self:
-          rid: 4449475435604476211
+          rid: 4449475549798596686
         Name:
-          rid: 4449475435604476227
-    - rid: 4449475435604476297
+          rid: 4449475549798596693
+    - rid: 4449475549798596690
       type: {class: ExecuteBehaviorAction, ns: , asm: Enemy}
       data:
         ID:
@@ -849,12 +865,12 @@ MonoBehaviour:
         Graph:
           rid: 4449475435604476153
         m_Parent:
-          rid: 4449475435604476295
+          rid: 4449475549798596685
         Self:
-          rid: 4449475435604476211
+          rid: 4449475549798596686
         Name:
-          rid: 4449475435604476245
-    - rid: 4449475435604476298
+          rid: 4449475549798596694
+    - rid: 4449475549798596691
       type: {class: ExecuteBehaviorAction, ns: , asm: Enemy}
       data:
         ID:
@@ -863,12 +879,12 @@ MonoBehaviour:
         Graph:
           rid: 4449475435604476153
         m_Parent:
-          rid: 4449475435604476295
+          rid: 4449475549798596685
         Self:
-          rid: 4449475435604476211
+          rid: 4449475549798596686
         Name:
-          rid: 4449475435604476262
-    - rid: 4449475435604476299
+          rid: 4449475549798596695
+    - rid: 4449475549798596692
       type: {class: ExecuteBehaviorAction, ns: , asm: Enemy}
       data:
         ID:
@@ -877,11 +893,43 @@ MonoBehaviour:
         Graph:
           rid: 4449475435604476153
         m_Parent:
-          rid: 4449475435604476295
+          rid: 4449475549798596685
         Self:
-          rid: 4449475435604476211
+          rid: 4449475549798596686
         Name:
-          rid: 4449475435604476281
+          rid: 4449475549798596696
+    - rid: 4449475549798596693
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: Idle
+    - rid: 4449475549798596694
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: Grabing
+    - rid: 4449475549798596695
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: Grab
+    - rid: 4449475549798596696
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: Fire
 --- !u!114 &1527923007312345397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,8 +1005,8 @@ MonoBehaviour:
   m_Name: GravityGun Blackboard
   m_EditorClassIdentifier: Unity.Behavior.Authoring::Unity.Behavior.BehaviorBlackboardAuthoringAsset
   AssetID:
-    m_Value0: 0
-    m_Value1: 0
+    m_Value0: 16448578815485961751
+    m_Value1: 17141657200961066697
   m_Variables:
   - rid: 4449475435604476159
   - rid: 4449475435604476162

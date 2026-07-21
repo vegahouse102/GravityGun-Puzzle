@@ -8,8 +8,13 @@ public class InteractionButton : InterationBehaviour
 	private Animator _animator;
 	[SerializeField]
 	private float _interactionTime;
+
+	[SerializeField]
+	private ButtonOfOff _ofoff;
 	private const string _interactionKey = "Interaction";
 	public UnityEvent<bool> OnInteraction;
+
+
 
 	Sequence _curSequence;
 	public override void Interacte()
@@ -20,6 +25,7 @@ public class InteractionButton : InterationBehaviour
 		_curSequence.AppendCallback(() =>
 		{
 			_animator.SetTrigger(_interactionKey);
+			_ofoff.SetActive(true);
 			OnInteraction?.Invoke(true);
 		});
 		_curSequence.AppendInterval(_interactionTime);
