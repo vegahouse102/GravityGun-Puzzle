@@ -8,6 +8,8 @@ public class GravityGun : MonoBehaviour
 	[SerializeField]
 	Transform _playerCamera;
 	[SerializeField]
+	Transform _gravityGunModel;
+	[SerializeField]
 	private float _cameraDelta;
 	[SerializeField]
 	private float _grabDistance;
