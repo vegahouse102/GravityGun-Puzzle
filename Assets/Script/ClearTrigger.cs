@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class ClearTrigger : MonoBehaviour
@@ -7,7 +8,7 @@ public class ClearTrigger : MonoBehaviour
 	[SerializeField]
 	private LayerMask _clearMask;
 
-	public Action OnClear;
+	public UnityEvent OnClear;
 
 	private void OnTriggerEnter(Collider other)
 	{

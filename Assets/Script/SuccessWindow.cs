@@ -13,12 +13,12 @@ public class SuccessWindow : MonoBehaviour
 	bool _isSuccess;
 	public void Awake()
 	{
-		_trigger.OnClear += Success;
+		_trigger.OnClear.AddListener(Success);
 	}
 
 	public void OnDestroy()
 	{
-		_trigger.OnClear -= Success;
+		_trigger.OnClear.RemoveListener( Success);
 	}
 	public void Success()
 	{
