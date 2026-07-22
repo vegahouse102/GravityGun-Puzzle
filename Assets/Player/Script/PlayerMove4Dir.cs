@@ -13,7 +13,7 @@ public class PlayerMove4Dir : MonoBehaviour
 	[SerializeField]
 	float _runSpeed;
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		if (_inputGetter.Input.Player.Move.IsPressed())
 		{

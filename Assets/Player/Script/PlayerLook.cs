@@ -13,6 +13,14 @@ public class PlayerLook : MonoBehaviour
 	[SerializeField]
 	float _sensitivity;
 	float _pitch;
+	private void Start()
+	{
+		SettingManager.Instance.OnMouseSensitivityChanged += SetSensitivity;
+	}
+	private void OnDestroy()
+	{
+		SettingManager.Instance.OnMouseSensitivityChanged -= SetSensitivity;
+	}
 	private void FixedUpdate()
 	{
 		Vector2 lookDelta = _input.Input.Player.Look.ReadValue<Vector2>();
