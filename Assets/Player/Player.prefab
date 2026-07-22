@@ -35,7 +35,6 @@ Transform:
   m_Children:
   - {fileID: 8999327599104700268}
   - {fileID: 2761910352532833408}
-  - {fileID: 2133273068197407741}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 88.461, z: 0}
 --- !u!33 &8247524312651135821
@@ -241,7 +240,7 @@ MonoBehaviour:
   _controller: {fileID: 7562295845746455374}
   _player: {fileID: 1659934885987706613}
   _jumpHeight: 2
-  _walkSpeed: 1.25
+  _walkSpeed: 2.47
   _runSpeed: 4.04
 --- !u!114 &2427012346725150115
 MonoBehaviour:
@@ -598,56 +597,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GravityGunGrabState
   _gravityGun: {fileID: 0}
   _grab: {fileID: 0}
---- !u!1 &8063721018772788975
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2133273068197407741}
-  - component: {fileID: 7124713452418199774}
-  m_Layer: 8
-  m_Name: Sensor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2133273068197407741
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8063721018772788975}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1659934885987706613}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7124713452418199774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8063721018772788975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d152ed4d2b8d27e4082d31a254eb798f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  _collider: {fileID: 2201213849537749439}
-  _d: -0.02
-  _layDistance: 0.1
-  _groundMask:
-    serializedVersion: 2
-    m_Bits: 576
 --- !u!1001 &7496056406396723235
 PrefabInstance:
   m_ObjectHideFlags: 0
