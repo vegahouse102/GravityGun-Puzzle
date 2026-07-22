@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &22016400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3507309147888351393, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+  m_PrefabInstance: {fileID: 6395838594431056059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefe81e43d1163c40bd90a2fe1095dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &257316062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -452,6 +463,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee44dc33103cb546a9be0883af71e16, type: 3}
+--- !u!82 &593207354 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8431166844887089324, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+  m_PrefabInstance: {fileID: 6395838594431056059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &654933453 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3126718936302870649, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+  m_PrefabInstance: {fileID: 6395838594431056059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &688953811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,6 +1282,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1332540867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5639081684684213181, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+  m_PrefabInstance: {fileID: 6395838594431056059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3587c0d50301d24ba925eb85c6d79db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputGetter
 --- !u!114 &1413526654 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7679257712886397520, guid: dc745e675fedc8d448325fbf52510e78, type: 3}
@@ -1918,6 +1950,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3370638205906212284, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+      propertyPath: _gravityGun
+      value: 
+      objectReference: {fileID: 22016400}
+    - target: {fileID: 3507309147888351393, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+      propertyPath: _input
+      value: 
+      objectReference: {fileID: 1332540867}
+    - target: {fileID: 3507309147888351393, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+      propertyPath: _fireForce
+      value: 108.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507309147888351393, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+      propertyPath: _maxGrabingDistance
+      value: 93.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4223450214557543399, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1966,6 +2014,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7332187805417260424, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+      propertyPath: _grabbing
+      value: 
+      objectReference: {fileID: 593207354}
+    - target: {fileID: 7332187805417260424, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+      propertyPath: _gravityGun
+      value: 
+      objectReference: {fileID: 22016400}
     - target: {fileID: 8862795194025732528, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.16
@@ -1974,6 +2030,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 5.9
       objectReference: {fileID: 0}
+    - target: {fileID: 9068722465389078584, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+      propertyPath: _grab
+      value: 
+      objectReference: {fileID: 654933453}
+    - target: {fileID: 9068722465389078584, guid: 761f455bdfcc1bd4e9176b3a46754e0b, type: 3}
+      propertyPath: _gravityGun
+      value: 
+      objectReference: {fileID: 22016400}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
