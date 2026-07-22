@@ -29,12 +29,13 @@ public class SuccessWindow : MonoBehaviour
 		sequence.AppendCallback(SuccessEfffect);
 		sequence.AppendInterval(_effectTime);
 		sequence.AppendCallback(()=>TransitionManager.Instance.StartTransition("LevelSelect"));
+		sequence.SetUpdate(true);
 	}
 
 
 	private void SuccessEfffect()
 	{
-		//Time.timeScale = 0f;
+		Time.timeScale = 0f;
 		_text.gameObject.SetActive(true);
 	}
 }

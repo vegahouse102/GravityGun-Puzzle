@@ -11,6 +11,9 @@ public class RemoveAndEffectObject : MonoBehaviour
 	Rigidbody _rigid;
 	[SerializeField]
 	private float _time;
+
+	[SerializeField]
+	AudioSource _erase;
 	private bool _isRemove;
 
 
@@ -21,8 +24,9 @@ public class RemoveAndEffectObject : MonoBehaviour
 			return DOTween.Sequence();
 		_isRemove = true;
 
-		
 
+
+		_erase?.Play();
 
 		_rigid.useGravity = false;
 		_renderer.material.color = Color.red;
