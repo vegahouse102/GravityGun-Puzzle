@@ -13,7 +13,7 @@ public class TransitionWindow : MonoBehaviour
 
 	bool _isTransitioning;
 
-	public void Awake()
+	public void Start()
 	{
 		TransitionManager.Instance.OnStartTransition += StartTransitionScene;
 	}

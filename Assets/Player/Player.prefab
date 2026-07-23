@@ -65,7 +65,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.33
+  m_Radius: 0.06
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
   _player: {fileID: 1659934885987706613}
   _jumpHeight: 2
   _walkSpeed: 2.47
-  _runSpeed: 4.04
+  _runSpeed: 5.78
 --- !u!114 &2427012346725150115
 MonoBehaviour:
   m_ObjectHideFlags: 0
