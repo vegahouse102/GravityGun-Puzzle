@@ -34,7 +34,7 @@ public class CubeGenerator : MonoBehaviour
 			_lastObjectRemover = obj.GetComponent<RemoveAndEffectObject>();
 			if( _lastObjectRemover != null)
 			{
-				_lastObjectRemover.OnRemove += RemovedLastObject;
+				_lastObjectRemover.OnRemoveEnd += RemovedLastObject;
 			}
 		});
 
@@ -50,6 +50,6 @@ public class CubeGenerator : MonoBehaviour
 	private void OnDestroy()
 	{
 		if(_lastObjectRemover!=null)
-			_lastObjectRemover. OnRemove -= RemovedLastObject;
+			_lastObjectRemover. OnRemoveEnd -= RemovedLastObject;
 	}
 }

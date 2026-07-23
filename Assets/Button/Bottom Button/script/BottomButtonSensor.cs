@@ -7,7 +7,6 @@ public class BottomButtonSensor : MonoBehaviour
 	string _tag;
 	public UnityEvent OnDetect;
 	public UnityEvent OnClear;
-
 	private int count;
 
 	private void OnTriggerEnter(Collider other)
@@ -17,6 +16,11 @@ public class BottomButtonSensor : MonoBehaviour
 			return;
 		if (count == 0)
 			OnDetect?.Invoke();
+
+		if (other.gameObject.TryGetComponent<RemoveAndEffectObject>(out RemoveAndEffectObject removeAndEffect))
+		{
+			removeAndEffect.OnRemoveEnd += HandleRemovedObject;
+		}
 		count++;
 		
 	}
@@ -27,9 +31,20 @@ public class BottomButtonSensor : MonoBehaviour
 		if (!other.CompareTag(_tag))
 			return;
 		count--;
+		if (other.gameObject.TryGetComponent<RemoveAndEffectObject>(out RemoveAndEffectObject removeAndEffect))
+		{
+			removeAndEffect.OnRemoveEnd -= HandleRemovedObject;
+		}
 		if (count == 0)
 			OnClear?.Invoke();
 
 
 	}
+	private void HandleRemovedObject()
+	{
+		count--;
+		if (count == 0)
+			OnClear?.Invoke();
+	}
+
 }

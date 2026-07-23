@@ -1,5 +1,4 @@
 
-using System;
 using UnityEngine;
 
 public class GravityGun : MonoBehaviour
@@ -97,19 +96,33 @@ public class GravityGun : MonoBehaviour
 	}
 	private void Update()
 	{
-		_statemachine.OnUpdate();
 		if (Input.Input.Player.Fire.WasPressedThisFrame())
 		{
 			_statemachine.ChangeState(_fireNode);
 		}
-	}
+		_statemachine.OnUpdate();
 
+	}
+	private void OnDestroy()
+	{
+		if(_grabObject != null&&_grabObject.TryGetComponent<RemoveAndEffectObject>(out RemoveAndEffectObject removeAndEffectObject))
+		{
+			removeAndEffectObject.OnRemoveStart -= HandleRemoveObject;
+		}
+	}
 	public void PutGrabObject()
 	{
+
 		_grabObject.constraints = RigidbodyConstraints.None;
 		//_grabObject.WakeUp();
 		_grabObject.useGravity = true;
 		_grabObject.gameObject.layer = _GrabLayer;
+
+		if (_grabObject.TryGetComponent<RemoveAndEffectObject>(out RemoveAndEffectObject removeAndEffectObject))
+		{
+			removeAndEffectObject.OnRemoveStart -= HandleRemoveObject;
+		}
+
 		_grabObject = null;
 	}
 
@@ -121,7 +134,18 @@ public class GravityGun : MonoBehaviour
 		_grabObject.useGravity = false;
 		_grabObject.linearVelocity = Vector3.zero;
 		_grabObject.angularVelocity = Vector3.zero;
+		if (_grabObject.TryGetComponent<RemoveAndEffectObject>(out RemoveAndEffectObject removeAndEffectObject))
+		{
+			removeAndEffectObject.OnRemoveStart += HandleRemoveObject;
+		}
 		//_grabObject.useGravity = false;
+	}
+
+
+	private void HandleRemoveObject()
+	{
+		_grabObject = null;
+		_statemachine.ChangeState(_IdleNode);
 	}
 	public Rigidbody GetGrabObject()
 	{
@@ -129,14 +153,8 @@ public class GravityGun : MonoBehaviour
 	}
 	public void SetGrabObject(Rigidbody grabObject)
 	{
-		_grabObject = grabObject; ;
-	}
+		_grabObject = grabObject;
 
-	public void StartGrabInput()
-	{
-	}
-	public void EndGrabInput()
-	{
 	}
 
 

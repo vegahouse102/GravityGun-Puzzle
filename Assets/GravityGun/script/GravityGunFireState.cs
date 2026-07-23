@@ -18,14 +18,11 @@ public class GravityGunFireState : Node
 	public override void OnStart()
 	{
 		_fire.Play();
-	}
-	public override void OnFixedUpdate()
-	{
 		if (_gravityGun.GetGrabObject() != null)
 		{
-			Vector3 dir =  _gravityGun. PlayerCamera.forward;
+			Vector3 dir = _gravityGun.PlayerCamera.forward;
 			_gravityGun.GetGrabObject().AddForce(dir * _gravityGun.FireForce, ForceMode.Impulse);
-			ChangeState(_gravityGun.IdleNode);
+			//ChangeState(_gravityGun.IdleNode);
 		}
 		else
 		{
@@ -35,13 +32,21 @@ public class GravityGunFireState : Node
 
 			if (Physics.Raycast(start, dir, out RaycastHit hit, _gravityGun.MaxFireDistance))
 			{
-				if (((1 << hit.collider.gameObject.layer) &_gravityGun.GrabableLayer.value) == 0)
+				if (((1 << hit.collider.gameObject.layer) & _gravityGun.GrabableLayer.value) == 0)
+				{
+					ChangeState(_gravityGun.IdleNode);
 					return;
+				}
 				hit.rigidbody.AddForce(dir * _gravityGun.FireForce, ForceMode.Impulse);
-				
+
 			}
-			ChangeState(_gravityGun.IdleNode);
+			
 		}
+		ChangeState(_gravityGun.IdleNode);
+	}
+	public override void OnFixedUpdate()
+	{
+
 	}
 
 }

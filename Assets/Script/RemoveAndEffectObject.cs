@@ -16,8 +16,8 @@ public class RemoveAndEffectObject : MonoBehaviour
 	AudioSource _erase;
 	private bool _isRemove;
 
-
-	public Action OnRemove;
+	public event Action OnRemoveStart;
+	public event Action OnRemoveEnd;
 	public Sequence RemoveAndEffect()
 	{
 		if (_isRemove)
@@ -31,6 +31,8 @@ public class RemoveAndEffectObject : MonoBehaviour
 		_rigid.useGravity = false;
 		_renderer.material.color = Color.red;
 		Sequence sequence = DOTween.Sequence();
+		sequence.AppendCallback(() => { gameObject.layer = 11; });// 지워지면 못잡는다.
+		sequence.AppendCallback(() => OnRemoveStart?.Invoke());
 		sequence.Append(DOTween.To(
 			() => _renderer.material.color,
 			(Color color) => _renderer.material.color = color,
@@ -38,7 +40,7 @@ public class RemoveAndEffectObject : MonoBehaviour
 			_time
 		));
 
-		sequence.AppendCallback(()=> OnRemove?.Invoke());
+		sequence.AppendCallback(()=> OnRemoveEnd?.Invoke());
 		sequence.AppendCallback(()=>Destroy(gameObject));
 		return sequence;
 	}

@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using System.Collections.Generic;
-using System;
 public class PowerReceiver : MonoBehaviour
 {
 	public UnityEvent<bool> OnActivate;
