@@ -4509,7 +4509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7042417249534300265, guid: 6753a014df09c20469e2d5b6693b522e, type: 3}
       propertyPath: _maxGrabingDistance
-      value: 93.6
+      value: 123.3
       objectReference: {fileID: 0}
     - target: {fileID: 9210195130653998452, guid: 6753a014df09c20469e2d5b6693b522e, type: 3}
       propertyPath: _gravityGun

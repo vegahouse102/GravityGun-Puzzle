@@ -679,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 8999327599104700268}
     - target: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
       propertyPath: _grabingVelocity
-      value: 11.7
+      value: 13.1
       objectReference: {fileID: 0}
     - target: {fileID: 701689323686342730, guid: c0a2f553ee3f0754f89678abf710c158, type: 3}
       propertyPath: _maxFireDistance
