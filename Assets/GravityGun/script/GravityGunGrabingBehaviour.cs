@@ -26,11 +26,12 @@ public class GravityGunGrabingState : Node
 			Rigidbody grabObject = hit.rigidbody;
 			if (grabObject != null)
 			{
-				grabObject.linearVelocity += -dir * _gravityGun.GrabingVelocity * Time.deltaTime;
-				if (grabObject.linearVelocity.sqrMagnitude > _gravityGun.GrabingVelocity * _gravityGun.GrabingVelocity)
-				{
-					grabObject.linearVelocity = -dir * _gravityGun.GrabingVelocity;
-				}
+				//grabObject.linearVelocity += -dir * _gravityGun.GrabingVelocity * Time.deltaTime;
+				grabObject.linearVelocity = -dir * _gravityGun.GrabingVelocity;
+				//if (grabObject.linearVelocity.sqrMagnitude > _gravityGun.GrabingVelocity * _gravityGun.GrabingVelocity)
+				//{
+				//	grabObject.linearVelocity = -dir * _gravityGun.GrabingVelocity;
+				//}
 				//Debug.Log("grabbing");
 			}
 			else

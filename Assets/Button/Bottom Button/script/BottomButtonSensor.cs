@@ -7,21 +7,26 @@ public class BottomButtonSensor : MonoBehaviour
 	string _tag;
 	public UnityEvent OnDetect;
 	public UnityEvent OnClear;
-	private int count;
 
+
+	private HashSet<GameObject> _pressedObject = new();
 	private void OnTriggerEnter(Collider other)
 	{
 
 		if (!other.CompareTag(_tag))
 			return;
-		if (count == 0)
+		if (_pressedObject.Contains(other.gameObject))
+			return;
+
+		if (_pressedObject.Count == 0)
 			OnDetect?.Invoke();
+
+		_pressedObject.Add(other.gameObject);
 
 		if (other.gameObject.TryGetComponent<RemoveAndEffectObject>(out RemoveAndEffectObject removeAndEffect))
 		{
-			removeAndEffect.OnRemoveEnd += HandleRemovedObject;
+			removeAndEffect.OnRemoveStart += HandleRemovedObject;
 		}
-		count++;
 		
 	}
 
@@ -30,20 +35,28 @@ public class BottomButtonSensor : MonoBehaviour
 
 		if (!other.CompareTag(_tag))
 			return;
-		count--;
+		if (!_pressedObject.Contains(other.gameObject))
+			return;
+
+
+		_pressedObject.Remove(other.gameObject);
 		if (other.gameObject.TryGetComponent<RemoveAndEffectObject>(out RemoveAndEffectObject removeAndEffect))
 		{
-			removeAndEffect.OnRemoveEnd -= HandleRemovedObject;
+			removeAndEffect.OnRemoveStart -= HandleRemovedObject;
 		}
-		if (count == 0)
+		if (_pressedObject.Count == 0)
 			OnClear?.Invoke();
 
 
 	}
-	private void HandleRemovedObject()
+	private void HandleRemovedObject(GameObject removedObject)
 	{
-		count--;
-		if (count == 0)
+		if (removedObject.TryGetComponent(out RemoveAndEffectObject remove))
+			remove.OnRemoveStart -= HandleRemovedObject;
+
+		_pressedObject.Remove(removedObject);
+
+		if (_pressedObject.Count == 0)
 			OnClear?.Invoke();
 	}
 

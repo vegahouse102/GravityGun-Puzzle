@@ -142,7 +142,7 @@ public class GravityGun : MonoBehaviour
 	}
 
 
-	private void HandleRemoveObject()
+	private void HandleRemoveObject(GameObject removedObject)
 	{
 		_grabObject = null;
 		_statemachine.ChangeState(_IdleNode);

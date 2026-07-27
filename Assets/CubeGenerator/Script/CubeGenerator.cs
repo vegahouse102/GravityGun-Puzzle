@@ -31,9 +31,12 @@ public class CubeGenerator : MonoBehaviour
 		{
 
 			GameObject obj =  Instantiate(_cube, _pos.position,Quaternion.identity);
-			_lastObjectRemover = obj.GetComponent<RemoveAndEffectObject>();
-			if( _lastObjectRemover != null)
+			RemoveAndEffectObject lastObjectRemover = obj.GetComponent<RemoveAndEffectObject>();
+			if(lastObjectRemover != null)
 			{
+				if (_lastObjectRemover != null)
+					_lastObjectRemover.OnRemoveEnd -= RemovedLastObject;
+				_lastObjectRemover = lastObjectRemover;
 				_lastObjectRemover.OnRemoveEnd += RemovedLastObject;
 			}
 		});
@@ -41,7 +44,7 @@ public class CubeGenerator : MonoBehaviour
 		sequence.AppendCallback(() => _isGenerating = false);
 	}
 
-	private void RemovedLastObject()
+	private void RemovedLastObject(GameObject removedObject)
 	{
 		_lastObjectRemover = null;
 		GenerateCube(true);
