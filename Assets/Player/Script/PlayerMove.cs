@@ -20,6 +20,9 @@ public class PlayerMove : MonoBehaviour
 	float _verticalVelocity;
 	float _gravity = -9.8f;
 
+
+	IMovingPlatform _movingPlatform;
+
 	private void Update()
 	{
 		Vector3 velocity = Vector3.zero;
@@ -50,5 +53,22 @@ public class PlayerMove : MonoBehaviour
 		velocity.y = _verticalVelocity;
 
 		_controller.Move(velocity * Time.deltaTime);
+	}
+	private void FixedUpdate()
+	{
+		if (_movingPlatform!=null)
+		{
+			Vector3 delta = _movingPlatform.GetMoveDelta();
+			_controller.Move(delta);
+		}
+		_movingPlatform = null;
+	}
+	private void OnControllerColliderHit(ControllerColliderHit hit)
+	{
+		Debug.Log("bbhit");
+		if (hit.collider.TryGetComponent<IMovingPlatform>(out IMovingPlatform movePlatform) ){
+			Debug.Log("hit");
+			_movingPlatform = movePlatform;
+		}
 	}
 }
