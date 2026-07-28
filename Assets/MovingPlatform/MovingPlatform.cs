@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
-using System.Runtime.CompilerServices;
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatform : MonoBehaviour, IMovingPlatform
 {
 	[SerializeField]
 	List<Transform> _platformMovePoints = new List<Transform>();
@@ -49,11 +48,7 @@ public class MovingPlatform : MonoBehaviour
 		_moveDelta = transform.position - _lastposition;
 		_lastposition = transform.position;
 	}
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.collider.attachedRigidbody != null)
-			Debug.Log("enter");
-	}
+
 	private void OnCollisionStay(Collision collision)
 	{
 
@@ -62,9 +57,6 @@ public class MovingPlatform : MonoBehaviour
 		{
 			//Debug.Log("Platforming");
 			collision.collider.attachedRigidbody.MovePosition(collision.collider.attachedRigidbody.position + _moveDelta);
-		}else
-		{
-			collision.collider.transform.position += _moveDelta;
 		}
 	}
 
@@ -80,4 +72,14 @@ public class MovingPlatform : MonoBehaviour
 		float distance = (b - a).magnitude;
 		return distance / velocity;
 	}
+
+	public Vector3 GetMoveDelta()
+	{
+		return _moveDelta;
+	}
+}
+
+public interface IMovingPlatform
+{
+	Vector3 GetMoveDelta();
 }
