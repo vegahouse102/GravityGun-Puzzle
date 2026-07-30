@@ -31,7 +31,15 @@ public class SettingWindow : MonoBehaviour
 		_audioMixer.SetFloat("SFX", ValueToDB(_sfx.value));
 
 
-		GameManager.Instance.OnPlayerDeath += () => { gameObject.SetActive(false); };
+		GameManager.Instance.OnPlayerDeath += SetActiveFalse;
+	}
+	private void OnDestroy()
+	{
+		GameManager.Instance.OnPlayerDeath -= SetActiveFalse;
+	}
+	private void SetActiveFalse()
+	{
+		gameObject.SetActive(false);
 	}
 	private void Update()
 	{

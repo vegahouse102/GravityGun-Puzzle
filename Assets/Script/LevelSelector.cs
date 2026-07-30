@@ -22,6 +22,7 @@ public class LevelSelector : MonoBehaviour
 		}
 		if (lastNumber < levelsSO.MaxLevel)
 		{
+			Debug.Log($"{lastNumber} {levelsSO.MaxLevel}");
 			GameObject element = Instantiate(_levelSelectElement, transform);
 			LevelSelectElementView view = element.GetComponent<LevelSelectElementView>();
 			view.SetLevelNumber(lastNumber+1);
