@@ -39,7 +39,7 @@ public class TransitionManager : MonoBehaviour
 	{
 		_isTransitioning = true;
 		AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextSceneName);
-		Time.timeScale = 0f;
+		//Time.timeScale = 0f;
 		if (asyncOperation == null)
 		{
 			_isTransitioning = false;

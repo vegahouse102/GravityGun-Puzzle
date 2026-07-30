@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _image: {fileID: 52699372504163038}
-  _imageTransitionTime: 0.62
+  _imageTransitionTime: 0
   _text: {fileID: 6614617778370460115}
 --- !u!1 &1530869496176999140
 GameObject:
