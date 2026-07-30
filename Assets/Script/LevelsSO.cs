@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class LevelsSO : ScriptableObject
 {
-
-	public List<LevelSO> levelSOs = new();
-
+	[SerializeField]
+	private  int _maxLevel;
+	public int MaxLevel { get { return _maxLevel; }  }
 }

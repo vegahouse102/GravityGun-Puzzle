@@ -3,26 +3,20 @@ using UnityEngine;
 public class LevelSelectElementView : MonoBehaviour
 {
 	[SerializeField]
-	private LevelSO testSO;
-	[SerializeField]
 	private TMPro.TextMeshProUGUI _levelNumber;
-	private LevelSO _curLevelSO;
+	private int _curLevelNumber;
 	private void Awake()
 	{
-		if(testSO != null) 
-			SetLevelSO(testSO);
-	}
-	public void SetLevelSO(LevelSO levelSO)
-	{
-		_curLevelSO = levelSO;
+
 	}
 	public void SetLevelNumber(int number)
 	{
+		_curLevelNumber = number;
 		_levelNumber.text = number.ToString();
 	}
 
 	public void HandleSelectedLevelSO()
 	{
-		TransitionManager.Instance.StartTransition(_curLevelSO.LevelName);
+		TransitionManager.Instance.StartTransition(_curLevelNumber.ToString());
 	}
 }

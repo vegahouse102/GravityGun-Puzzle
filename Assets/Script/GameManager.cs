@@ -26,17 +26,15 @@ public class GameManager : MonoBehaviour
 		return _levelsSO;
 	}
 
-	public void ClearLevel(string clearLevelName)
+	public void ClearLevel(int clearLevel)
 	{
-		foreach(var level in _levelsSO.levelSOs)
-		{
-			if(level.LevelName == clearLevelName)
-			{
-				level.IsClear = true;
-				Debug.Log($"clear {clearLevelName}");
-				return;
-			}
-		}
+		int lastClearLevel = GetLastClearLevel();
+		if(lastClearLevel < clearLevel)
+			PlayerPrefs.SetInt("LastClearLevel",clearLevel);
+	}
+	public int GetLastClearLevel()
+	{
+		return PlayerPrefs.GetInt("LastClearLevel",0);
 	}
 	public void HandlePlayerDeath()
 	{

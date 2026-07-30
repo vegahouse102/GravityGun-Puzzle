@@ -12,10 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c28199989ebdd442a1932761fa326ae, type: 3}
   m_Name: WorldSO
   m_EditorClassIdentifier: Assembly-CSharp::LevelsSO
-  levelSOs:
-  - {fileID: 11400000, guid: e9c3ac797e57c5b46b15d39ec6c58b2d, type: 2}
-  - {fileID: 11400000, guid: c570d70dbf4f67243b9e66bf41ffceb4, type: 2}
-  - {fileID: 11400000, guid: 6af18201345d7174892e002ac23c3cc2, type: 2}
-  - {fileID: 11400000, guid: da7ec3b27eb356c419070aef149934f1, type: 2}
-  - {fileID: 11400000, guid: 3556de40882024e439d142f46cf604af, type: 2}
-  - {fileID: 11400000, guid: f49a16f6646813249b70813dbb1b254c, type: 2}
+  _maxLevel: 6

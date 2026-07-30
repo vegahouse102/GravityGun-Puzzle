@@ -19,7 +19,15 @@ public class ClearTrigger : MonoBehaviour
 		{
 			_cleared = true;
 			string name = SceneManager.GetActiveScene().name;
-			GameManager.Instance.ClearLevel(name);
+			if (int.TryParse(name, out int value))
+			{
+				GameManager.Instance.ClearLevel((value));
+				Debug.Log(value);
+			}
+			else
+			{
+				Debug.Log("변환 실패");
+			}
 			OnClear?.Invoke();
 		}
 	}
