@@ -34,15 +34,7 @@ public class SettingWindow : MonoBehaviour
 	{
 		if (_input.Input.Player.Setting.WasPressedThisFrame())
 		{
-			_window.SetActive(!_window.activeSelf);
-			if (_window.activeSelf)
-			{
-				Time.timeScale = 0;
-			}
-			else
-			{
-				Time.timeScale = 1;
-			}
+			ToggleSettingWindow();
 		}
 	}
 
@@ -53,6 +45,18 @@ public class SettingWindow : MonoBehaviour
 		return 20 * Mathf.Log10(value01);
 	}
 	// Update is called once per frame
+	public void ToggleSettingWindow()
+	{
+		_window.SetActive(!_window.activeSelf);
+		if (_window.activeSelf)
+		{
+			Time.timeScale = 0;
+		}
+		else
+		{
+			Time.timeScale = 1;
+		}
+	}
 
 
 	public void SetBGM(float value01)
