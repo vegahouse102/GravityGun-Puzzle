@@ -11,7 +11,7 @@ public class MovingPlatform : MonoBehaviour, IMovingPlatform
 	[SerializeField]
 	private float _endPosStopTime;
 	[SerializeField]
-	private bool _shouldStartMove;
+	private Mode _movingPlatformMode;
 	Sequence _movingSequence;
 
 
@@ -37,11 +37,14 @@ public class MovingPlatform : MonoBehaviour, IMovingPlatform
 		_movingSequence.AppendInterval(_endPosStopTime);
 		_movingSequence.SetUpdate(UpdateType.Fixed);
 		_movingSequence.SetLoops(-1);
-		SetMove(_shouldStartMove);
+		if(_movingPlatformMode==Mode.StartMove)
+			SetMove(true);
+		else
+			SetMove(false);
 
 
 
-		_lastposition = transform.position;
+			_lastposition = transform.position;
 
 	}
 	private void FixedUpdate()
@@ -57,12 +60,26 @@ public class MovingPlatform : MonoBehaviour, IMovingPlatform
 	}
 	public void SetMove(bool value)
 	{
-		if (_shouldStartMove)
-			return;
-		if (value)
-			_movingSequence.Play();
-		else
-			_movingSequence.Pause();
+		switch (_movingPlatformMode)
+		{
+			case Mode.Default:
+				if (value)
+					_movingSequence.Play();
+				else
+					_movingSequence.Pause();
+				break;
+			case Mode.StartMove:
+				break;
+			case Mode.RepeatMove:
+				if (value)
+					_movingSequence.Play();
+				break;
+			default:
+				break;
+		}
+
+
+		
 	}
 	private float GetMoveTime(Vector3 a, Vector3 b, float velocity)
 	{
@@ -73,6 +90,12 @@ public class MovingPlatform : MonoBehaviour, IMovingPlatform
 	public Vector3 GetMoveDelta()
 	{
 		return _moveDelta;
+	}
+	enum Mode
+	{
+		Default,
+		StartMove,
+		RepeatMove
 	}
 }
 

@@ -1790,7 +1790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _image: {fileID: 7726025233127771326}
   _transitionTime: 1.33
-  _waitTime: 2.15
+  _waitTime: 1.27
 --- !u!1 &4212573703007216125
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,6 +38,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 0
+    - _AlphaMultiPly: 0.34
     - _QueueControl: 0
     - _QueueOffset: 0
     - _TimeMultifiler: 0.2

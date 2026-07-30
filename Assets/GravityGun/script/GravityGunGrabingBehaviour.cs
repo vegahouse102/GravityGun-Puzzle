@@ -18,10 +18,9 @@ public class GravityGunGrabingState : Node
 		Vector3 start = _gravityGun.PlayerCamera.position + dir * _gravityGun.CameraDelta;
 		Debug.DrawRay(start, dir * _gravityGun.MaxGrabingDistance);
 
-		if (Physics.Raycast(start, dir, out RaycastHit hit, _gravityGun.MaxGrabingDistance))
+		if (Physics.Raycast(start, dir, out RaycastHit hit, _gravityGun.MaxGrabingDistance,_gravityGun.GrabableLayer,
+    QueryTriggerInteraction.Ignore))
 		{
-			if (((1 << hit.collider.gameObject.layer) & _gravityGun.GrabableLayer.value) == 0)
-				return;
 			_gravityGun.SetGrabObject(hit.rigidbody);
 			Rigidbody grabObject = hit.rigidbody;
 			if (grabObject != null)
