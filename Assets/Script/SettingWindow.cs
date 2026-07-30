@@ -26,7 +26,7 @@ public class SettingWindow : MonoBehaviour
 		_bgm.value = _settingManager.BgmVolume;
 		_sfx.value = _settingManager.SfxVolume;
 		_sensitivity.value = _settingManager.MouseSensitivity/5f;
-
+		Debug.Log(_settingManager.MouseSensitivity);
 		_audioMixer.SetFloat("BGM",ValueToDB(_bgm.value));
 		_audioMixer.SetFloat("SFX", ValueToDB(_sfx.value));
 	}

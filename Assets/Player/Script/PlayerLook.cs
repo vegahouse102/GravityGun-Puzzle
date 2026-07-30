@@ -10,12 +10,12 @@ public class PlayerLook : MonoBehaviour
 	[SerializeField]
 	Transform _camera;
 
-	[SerializeField]
 	float _sensitivity;
 	float _pitch;
 	private void Start()
 	{
 		SettingManager.Instance.OnMouseSensitivityChanged += SetSensitivity;
+		_sensitivity = SettingManager.Instance.MouseSensitivity;
 	}
 	private void OnDestroy()
 	{
