@@ -7,6 +7,6 @@ public class LoadSceneCallback : MonoBehaviour
 	private string _loadSceneName;
 	public void LoadSceneCallBack()
 	{
-		SceneManager.LoadScene(_loadSceneName);
+		TransitionManager.Instance.StartTransition(_loadSceneName);
 	}
 }

@@ -3049,6 +3049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 7409936298484523957, guid: caec96a1fa48af6488da78ef12a6ca0b, type: 3}
+      propertyPath: m_Positions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8562685774117909103, guid: caec96a1fa48af6488da78ef12a6ca0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 496.74

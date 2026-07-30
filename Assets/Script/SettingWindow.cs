@@ -29,6 +29,9 @@ public class SettingWindow : MonoBehaviour
 		Debug.Log(_settingManager.MouseSensitivity);
 		_audioMixer.SetFloat("BGM",ValueToDB(_bgm.value));
 		_audioMixer.SetFloat("SFX", ValueToDB(_sfx.value));
+
+
+		GameManager.Instance.OnPlayerDeath += () => { gameObject.SetActive(false); };
 	}
 	private void Update()
 	{
@@ -37,8 +40,6 @@ public class SettingWindow : MonoBehaviour
 			ToggleSettingWindow();
 		}
 	}
-
-
 	private float ValueToDB(float value01)
 	{
 		value01 = Mathf.Max(value01, 0.0001f);

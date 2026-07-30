@@ -16,6 +16,10 @@ public class PlayerLook : MonoBehaviour
 	{
 		SettingManager.Instance.OnMouseSensitivityChanged += SetSensitivity;
 		_sensitivity = SettingManager.Instance.MouseSensitivity;
+		_pitch = 0;
+		_camera.localRotation = Quaternion.identity;
+
+		_input.Input.Player.Look.ReadValue<Vector2>(); // 한번 소비
 	}
 	private void OnDestroy()
 	{

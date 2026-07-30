@@ -25,16 +25,16 @@ public class TransitionWindow : MonoBehaviour
 			return;
 		_isTransitioning = true;
 		gameObject.SetActive(true);
+		_image.gameObject.SetActive(true);
 		Sequence sequence = DOTween.Sequence();
 		sequence.AppendCallback(()=>_text.gameObject.SetActive(true));
-
 		Sequence tmp = DOTween.Sequence();
 		tmp.AppendCallback(()=>_text.text = "LOADING.");
-		tmp.AppendInterval(.1f);
+		tmp.AppendInterval(0.1f);
 		tmp.AppendCallback(() => _text.text = "LOADING..");
-		tmp.AppendInterval(.1f);
+		tmp.AppendInterval(0.1f);
 		tmp.AppendCallback(() => _text.text = "LOADING...");
-		tmp.AppendInterval(.1f);
+		tmp.AppendInterval(0.1f);
 		//tmp.SetUpdate(true);
 		tmp.SetLoops(-1);
 		sequence.Append(tmp);

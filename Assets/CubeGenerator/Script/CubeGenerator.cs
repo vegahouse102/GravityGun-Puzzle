@@ -6,7 +6,8 @@ public class CubeGenerator : MonoBehaviour
 	private GameObject _cube;
 	[SerializeField]
 	private Transform _pos;
-
+	[SerializeField]
+	private RemoveAndEffectObject _connectCreatedCube;
 
 
 	private RemoveAndEffectObject _lastObjectRemover;
@@ -14,6 +15,16 @@ public class CubeGenerator : MonoBehaviour
 
 
 	private bool _isGenerating;
+
+	private void Start()
+	{
+		if (_connectCreatedCube != null)
+		{
+			_lastObjectRemover = _connectCreatedCube;
+			_lastObjectRemover.OnRemoveEnd += RemovedLastObject;
+			
+		}
+	}
 	public void GenerateCube(bool value)
 	{
 		if (!value)
@@ -46,6 +57,7 @@ public class CubeGenerator : MonoBehaviour
 
 	private void RemovedLastObject(GameObject removedObject)
 	{
+		Debug.Log("ddd");
 		_lastObjectRemover = null;
 		GenerateCube(true);
 	}

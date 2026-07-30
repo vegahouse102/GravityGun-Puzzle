@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
+using System.Collections.Immutable;
 public class MovingPlatform : MonoBehaviour, IMovingPlatform
 {
 	[SerializeField]
@@ -50,7 +51,10 @@ public class MovingPlatform : MonoBehaviour, IMovingPlatform
 	}
 
 
-
+	public IImmutableList<Transform> GetPlatformMovePoints()
+	{
+		return _platformMovePoints.ToImmutableList<Transform>();
+	}
 	public void SetMove(bool value)
 	{
 		if (_shouldStartMove)
