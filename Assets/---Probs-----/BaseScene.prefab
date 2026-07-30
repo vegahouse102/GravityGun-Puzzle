@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _image: {fileID: 7726025233127771326}
   _transitionTime: 1.33
-  _waitTime: 3.6
+  _waitTime: 2.15
 --- !u!1 &4212573703007216125
 GameObject:
   m_ObjectHideFlags: 0
