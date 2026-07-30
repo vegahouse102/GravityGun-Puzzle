@@ -49,19 +49,12 @@ public class MovingPlatform : MonoBehaviour, IMovingPlatform
 		_lastposition = transform.position;
 	}
 
-	private void OnCollisionStay(Collision collision)
-	{
 
-
-		if (collision.collider.attachedRigidbody != null)
-		{
-			//Debug.Log("Platforming");
-			collision.collider.attachedRigidbody.MovePosition(collision.collider.attachedRigidbody.position + _moveDelta);
-		}
-	}
 
 	public void SetMove(bool value)
 	{
+		if (_shouldStartMove)
+			return;
 		if (value)
 			_movingSequence.Play();
 		else

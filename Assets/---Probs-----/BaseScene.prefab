@@ -4515,7 +4515,8 @@ PrefabInstance:
       propertyPath: _gravityGun
       value: 
       objectReference: {fileID: 3507309147888351393}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4912890272751899350, guid: 6753a014df09c20469e2d5b6693b522e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
