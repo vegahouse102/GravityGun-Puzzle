@@ -2,10 +2,15 @@
 Puzzle game inspired by the Gravity Gun from Half-Life.
 
 Move : wasd
+
 Jump : space
+
 Interaction : e
+
 Setting : esc
+
 GravityGun Grabbing : rightMouse
+
 GravityGun Parse : LeftMouse
 
 
