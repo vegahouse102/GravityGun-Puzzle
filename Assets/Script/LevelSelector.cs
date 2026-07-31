@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 
 public class LevelSelector : MonoBehaviour
 {
 	[SerializeField]
 	GameObject _levelSelectElement;
+	[SerializeField]
+	TextMeshProUGUI _allCompleteText;
 	public void Start()
 	{
 		CreateLevelEelements();
@@ -26,6 +29,10 @@ public class LevelSelector : MonoBehaviour
 			GameObject element = Instantiate(_levelSelectElement, transform);
 			LevelSelectElementView view = element.GetComponent<LevelSelectElementView>();
 			view.SetLevelNumber(lastNumber+1);
+		}
+		else
+		{
+			_allCompleteText.gameObject.SetActive(true);
 		}
 	}
 }
